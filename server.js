@@ -4,7 +4,10 @@ var mongoose=require('mongoose');
 var Record=require('./record');
 const util = require ('./util');
 
-const port=5000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 // connect to mongodb 
 mongoose.connect('mongodb://dbUser:dbPassword1@ds249623.mlab.com:49623/getir-case-study', {useNewUrlParser: true});
